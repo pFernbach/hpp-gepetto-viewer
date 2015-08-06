@@ -162,6 +162,7 @@ class Viewer (object):
         ps.clearRoadmap()
       tStart = time.time()
       if problem.prepareSolveStepByStep() : 
+        problem.finishSolveStepByStep()
         self.displayRoadmap(nameRoadmap,colorNode,radiusSphere,sizeAxis,colorEdge,joint)
         tStop = time.time()
         return tStop-tStart
