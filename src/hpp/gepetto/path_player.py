@@ -117,3 +117,6 @@ class PathPlayer (object):
                 elapsed = time.time() - start
                 if elapsed < self.dt :
                   time.sleep(self.dt-elapsed)
+                else :
+                  print("Warning : time step is shorter than computation time for robot geometry ("+str(elapsed)+")")
+

@@ -208,9 +208,9 @@ class Viewer (object):
       if ps.numberNodes() > 0 : 
         ps.clearRoadmap()
       tStart = time.time()
-      if problem.prepareSolveStepByStep() :
+      if problem.prepareSolveStepByStep() : 
         problem.finishSolveStepByStep()
-        self.displayRoadmap(nameRoadmap,radiusSphere,sizeAxis,colorNode,colorEdge,joint)
+        self.displayRoadmap(nameRoadmap,colorNode,radiusSphere,sizeAxis,colorEdge,joint)
         tStop = time.time()
         return tStop-tStart
       beginEdge = ps.numberEdges()
