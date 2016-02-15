@@ -284,7 +284,7 @@ class Viewer (object):
         dataRootDir = os.path.dirname (meshPackagePath) + "/"
         packagePath += '/urdf/' + filename + '.urdf'
         self.client.gui.addUrdfObjects (prefix, packagePath, dataRootDir,
-                                        not self.collisionURDF)
+                                        True)
         self.client.gui.addToGroup (prefix, self.sceneName)
         self.computeObjectPosition ()
 
