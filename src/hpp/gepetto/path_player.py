@@ -57,7 +57,7 @@ class PathPlayer (object):
 
     ## Display the path of the desired joint
     # By default, display the path of the root
-    def displayPath(self,pathId,color=[0.85,0.75,0.15,0.9],jointName=0) :
+    def displayPath(self,pathId,color=[0.85,0.75,0.15,0.9],jointName=0,offset = [0,0,0]) :
       if jointName == 0 :
         if self.publisher.robot.rootJointType == 'planar' :
           jointName = self.publisher.robot.tf_root+'_joint'
@@ -69,7 +69,10 @@ class PathPlayer (object):
         if jointName != 0 : 
           self.publisher.robot.setCurrentConfig(q)
           q = self.publisher.robot.getLinkPosition(jointName)
-        pathPos = pathPos + [q[:3]]
+        pos = q[:3]
+        for i in range(3):
+            pos[i] = pos[i]+offset[i]
+        pathPos = pathPos + [pos]
         t += self.dt
       if jointName == 0 :
         jointName = "root"
